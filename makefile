@@ -30,6 +30,3 @@ psql:
 restart:
 	@docker-compose stop
 	@docker-compose up --detach
-
-test:
-	@docker exec -it aiohttp python3 test.py
