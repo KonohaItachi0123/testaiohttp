@@ -1,5 +1,5 @@
 import graphene
-from hackernews.api.mutations.news import CreateNews
+from hackernews.api.mutations.news import CreateNews, EmptyDB
 
 
 class Mutations(graphene.ObjectType):
@@ -8,3 +8,4 @@ class Mutations(graphene.ObjectType):
     """
 
     add_news = CreateNews.Field(description="News for tech enthusiast hackers")
+    delete_everything = EmptyDB.Field()

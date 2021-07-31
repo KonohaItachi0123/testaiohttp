@@ -14,6 +14,10 @@ async def select_all_news(conn: SAConn) -> RowProxy:
     items = await cursor.fetchall()
     return items
 
+async def delete_all_news(conn: SAConn) -> RowProxy:
+    _ = await conn.execute(news.delete())
+   
+    return True
 
 async def create_news(conn: SAConn, title: str, body: str) -> RowProxy:
     cursor = await conn.execute(
