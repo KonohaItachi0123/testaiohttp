@@ -39,4 +39,4 @@ test:
 	@until docker exec -it aiohttp_postgres psql -q -U postgres -c "select 1 as postgres_ready" -d postgres; do sleep 1; done
 	@docker exec -it aiohttp alembic revision --autogenerate
 	@docker exec -it aiohttp alembic upgrade head
-	@docker exec -it django /app/run-test.sh
+	@docker exec -it aiohttp /app/run-test.sh
