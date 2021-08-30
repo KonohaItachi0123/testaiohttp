@@ -32,11 +32,4 @@ restart:
 	@docker-compose up --detach
 
 test:
-	@docker stop resurface || true
-	@rm -f ./hackernews/migrations/versions/*_.py
-	@docker build -t test-aiohttp --no-cache .
-	@docker-compose up --detach
-	@until docker exec -it aiohttp_postgres psql -q -U postgres -c "select 1 as postgres_ready" -d postgres; do sleep 1; done
-	@docker exec -it aiohttp alembic revision --autogenerate
-	@docker exec -it aiohttp alembic upgrade head
 	@docker exec -it aiohttp /app/run-test.sh
