@@ -21,4 +21,5 @@ make ping      # make simple ping request
 make bash      # open shell session
 make logs      # follow container logs
 make stop      # halt and remove containers
+make test      # Integration test python logger
 ```
